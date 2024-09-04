@@ -8,6 +8,7 @@ import java.util.Objects;
 
 public class Main {
     private JPanel jPanelBackPanel;
+    private GamePanel gamePanel;
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(Main::new);
@@ -26,9 +27,6 @@ public class Main {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-        GamePanel gp = new GamePanel();
-        jPanelBackPanel.add(gp);
 
         frame.pack();
         frame.setVisible(true);
