@@ -14,6 +14,8 @@ public class GamePanel extends JPanel {
     private double speed;
     private int column;
     private int row;
+    private int squareSize; // px
+    private int infoAreaColumn;
     private Square[][] area;
 
     public GamePanel() {
@@ -21,6 +23,8 @@ public class GamePanel extends JPanel {
         this.random = new Random();
         this.column = 10;
         this.row = 20;
+        this.squareSize = 25;
+        this.infoAreaColumn = 8;
         this.area = new Square[column][row];
     }
 
