@@ -30,7 +30,10 @@ public class GamePanel extends JPanel {
 
     @Override
     protected void paintComponent(Graphics g) {
-        super.paintComponent(g2D);
+        super.paintComponent(g);
+        Graphics2D g2D = (Graphics2D) g;
+        // This is the outer game frame (The gray one)
+        paintGameFrame(g2D);
     }
 
     public void start() {
@@ -39,5 +42,22 @@ public class GamePanel extends JPanel {
             public void run() {
             }
         }, 0, 50);
+    }
+    private void paintGameFrame(Graphics2D g2D) {
+        int widthCol = this.column + this.infoAreaColumn + 3; // plus 3 for frame
+        int heightCol = this.row + 2; // plus 2 for frame
+
+        // Draw top and bottom frame
+        for (int i = 0; i < widthCol; i++) {
+            new Square(i * squareSize, 0, squareSize).paint(g2D, Color.GRAY);
+            new Square(i * squareSize, (row + 1) * squareSize, squareSize).paint(g2D, Color.GRAY);
+        }
+
+        // Draw left, middle and right frame
+        for (int i = 0; i < heightCol; i++) {
+            new Square(0, i * squareSize, squareSize).paint(g2D, Color.GRAY);
+            new Square((this.column + 1) * squareSize, i * squareSize, squareSize).paint(g2D, Color.GRAY);
+            new Square((this.column + this.infoAreaColumn + 2) * squareSize, i * squareSize, squareSize).paint(g2D, Color.GRAY);
+        }
     }
 }
