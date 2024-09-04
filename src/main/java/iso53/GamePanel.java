@@ -68,4 +68,10 @@ public class GamePanel extends JPanel {
             new Square((this.column + this.infoAreaColumn + 2) * squareSize, i * squareSize, squareSize).paint(g2D, Color.GRAY);
         }
     }
+
+    private void paintCurrentPiece(Graphics2D g2D) {
+        for (Square square : current.getSquares()) {
+            square.paint(g2D, current.getColor());
+        }
+    }
 }
