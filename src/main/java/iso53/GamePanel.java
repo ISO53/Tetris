@@ -10,23 +10,25 @@ public class GamePanel extends JPanel {
 
     private final Timer timer;
     private final Random random;
+    private final int column;
+    private final int row;
+    private final int infoAreaColumn;
+    private final Square[][] area;
 
     private double speed;
-    private int column;
-    private int row;
     private int squareSize; // px
-    private int infoAreaColumn;
-    private Square[][] area;
+    private Piece current;
+    private Piece next;
 
     public GamePanel() {
         this.timer = new Timer();
         this.random = new Random();
         this.column = 10;
         this.row = 20;
-        this.squareSize = 25;
         this.infoAreaColumn = 8;
         this.area = new Square[column][row];
 
+        this.squareSize = 25;
     }
 
     @Override
