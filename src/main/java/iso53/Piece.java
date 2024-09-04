@@ -90,5 +90,11 @@ public class Piece {
         return new Piece(x, y, size, PieceType.values()[new Random().nextInt(PieceType.values().length)]);
     }
 
+    public Square[] getSquares() {
+        return squares;
+    }
+
+    public Color getColor() {
+        return color;
     }
 }
