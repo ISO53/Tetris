@@ -2,6 +2,8 @@ package iso53;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -26,6 +28,14 @@ public class GamePanel extends JPanel {
         this.squareSize = 25;
         this.infoAreaColumn = 8;
         this.area = new Square[column][row];
+
+        addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentResized(ComponentEvent e) {
+                super.componentResized(e);
+                squareSize = e.getComponent().getHeight() / (row + 3); // plus 3 for outer frame
+            }
+        });
     }
 
     @Override
