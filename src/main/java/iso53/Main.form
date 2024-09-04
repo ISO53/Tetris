@@ -3,10 +3,12 @@
   <grid id="27dc6" binding="jPanelBackPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="10" left="10" bottom="10" right="10"/>
     <constraints>
-      <xy x="20" y="20" width="500" height="400"/>
+      <xy x="20" y="20" width="545" height="570"/>
     </constraints>
     <properties>
       <background color="-16777216"/>
+      <minimumSize width="545" height="570"/>
+      <preferredSize width="545" height="570"/>
     </properties>
     <border type="none"/>
     <children>
