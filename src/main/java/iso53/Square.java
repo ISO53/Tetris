@@ -56,6 +56,7 @@ public class Square extends Rectangle {
                 , baseColor.getGreen(), baseColor.getBlue(), 200), x, y + height, new Color(Color.BLACK.getRed(),
                 Color.BLACK.getGreen(), Color.BLACK.getBlue(), 128));
         g2D.setPaint(gradientBottom);
-        g2D.fill(new RoundRectangle2D.Float(x, y + height - gradientHeight, width, gradientHeight, arcWidth, arcHeight));
+        g2D.fill(new RoundRectangle2D.Float(x, y + height - gradientHeight, width, gradientHeight, arcWidth,
+                arcHeight));
     }
 }
