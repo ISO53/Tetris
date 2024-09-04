@@ -1,6 +1,7 @@
 package iso53;
 
 import java.awt.*;
+import java.util.Random;
 
 public class Piece {
 
@@ -83,5 +84,9 @@ public class Piece {
                 // This is impossible but if I don't add this compiler gets angry (color variable is final)
             }
         }
+    }
+
+    public static Piece random(int size) {
+        return new Piece(0, 0, size, PieceType.values()[new Random().nextInt(PieceType.values().length)]);
     }
 }
