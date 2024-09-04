@@ -29,6 +29,7 @@ public class GamePanel extends JPanel {
         this.area = new Square[column][row];
 
         this.squareSize = 25;
+        this.current = Piece.random(5, 0, squareSize);
     }
 
     @Override
