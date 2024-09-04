@@ -17,7 +17,7 @@ public class Main {
     public Main() {
         JFrame frame = new JFrame("Tetris");
         frame.setContentPane(jPanelBackPanel);
-        frame.setMinimumSize(new Dimension(400, 700));
+        frame.setMinimumSize(new Dimension(545, 570));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
 
