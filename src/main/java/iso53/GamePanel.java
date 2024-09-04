@@ -6,7 +6,7 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class GamePanel extends JComponent {
+public class GamePanel extends JPanel {
 
     private final Timer timer;
     private final Random random;
