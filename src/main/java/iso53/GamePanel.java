@@ -42,6 +42,9 @@ public class GamePanel extends JPanel {
 
         // This is the outer game frame (The gray one)
         paintGameFrame(g2D);
+
+        // Current piece that's falling down
+        paintCurrentPiece(g2D);
     }
 
     public void start() {
