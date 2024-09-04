@@ -10,7 +10,6 @@ public class GamePanel extends JPanel {
 
     private final Timer timer;
     private final Random random;
-    private Graphics2D g2D;
 
     private double speed;
     private int column;
@@ -22,7 +21,6 @@ public class GamePanel extends JPanel {
         this.random = new Random();
         this.column = 10;
         this.row = 30;
-        this.g2D = (Graphics2D) getGraphics();
         this.area = new Square[column][row];
     }
 
