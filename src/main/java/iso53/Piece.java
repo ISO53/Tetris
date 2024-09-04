@@ -25,58 +25,58 @@ public class Piece {
         switch (type) {
             case O: {
                 this.color = Color.YELLOW;
-                squares[0] = new Square(x, y, size);
-                squares[1] = new Square(x + size, y, size);
-                squares[2] = new Square(x, y + size, size);
-                squares[3] = new Square(x + size, y + size, size);
+                squares[0] = new Square(x * size, y * size, size);
+                squares[1] = new Square((x + 1) * size, y * size, size);
+                squares[2] = new Square(x * size, (y + 1) * size, size);
+                squares[3] = new Square((x + 1) * size, (y + 1) * size, size);
                 break;
             }
             case I: {
                 this.color = Color.BLUE;
-                squares[0] = new Square(x, y, size);
-                squares[1] = new Square(x, y + size, size);
-                squares[2] = new Square(x, y + 2 * size, size);
-                squares[3] = new Square(x, y + 3 * size, size);
+                squares[0] = new Square(x * size, y * size, size);
+                squares[1] = new Square(x * size, (y + 1) * size, size);
+                squares[2] = new Square(x * size, (y + 2) * size, size);
+                squares[3] = new Square(x * size, (y + 3) * size, size);
                 break;
             }
             case S: {
                 this.color = Color.RED;
-                squares[0] = new Square(x + size, y, size);
-                squares[1] = new Square(x + 2 * size, y, size);
-                squares[2] = new Square(x, y + size, size);
-                squares[3] = new Square(x, y + 2 * size, size);
+                squares[0] = new Square((x + 1) * size, y * size, size);
+                squares[1] = new Square((x + 2) * size, y * size, size);
+                squares[2] = new Square(x * size, (y + 1) * size, size);
+                squares[3] = new Square(x * size, (y + 2) * size, size);
                 break;
             }
             case Z: {
                 this.color = Color.GREEN;
-                squares[0] = new Square(x, y, size);
-                squares[1] = new Square(x + size, y, size);
-                squares[2] = new Square(x + size, y + size, size);
-                squares[3] = new Square(x + 2 * size, y + size, size);
+                squares[0] = new Square(x * size, y * size, size);
+                squares[1] = new Square((x + 1) * size, y * size, size);
+                squares[2] = new Square((x + 1) * size, (y + 1) * size, size);
+                squares[3] = new Square((x + 2) * size, (y + 1) * size, size);
                 break;
             }
             case L: {
                 this.color = Color.ORANGE;
-                squares[0] = new Square(x, y, size);
-                squares[1] = new Square(x, y + size, size);
-                squares[2] = new Square(x, y + 2 * size, size);
-                squares[3] = new Square(x + size, y + 3 * size, size);
+                squares[0] = new Square(x * size, y * size, size);
+                squares[1] = new Square(x * size, (y + 1) * size, size);
+                squares[2] = new Square(x * size, (y + 2) * size, size);
+                squares[3] = new Square(x + size, (y + 3) * size, size);
                 break;
             }
             case J: {
                 this.color = Color.PINK;
-                squares[0] = new Square(x + size, y, size);
-                squares[1] = new Square(x + size, y + size, size);
-                squares[2] = new Square(x + size, y + 2 * size, size);
-                squares[3] = new Square(x, y + 3 * size, size);
+                squares[0] = new Square((x + 1) * size, y * size, size);
+                squares[1] = new Square((x + 1) * size, (y + 1) * size, size);
+                squares[2] = new Square((x + 1) * size, (y + 2) * size, size);
+                squares[3] = new Square(x * size, (y + 3) * size, size);
                 break;
             }
             case T: {
                 this.color = Color.MAGENTA;
-                squares[0] = new Square(x, y, size);
-                squares[1] = new Square(x + size, y, size);
-                squares[2] = new Square(x + 2 * size, y, size);
-                squares[3] = new Square(x + size, y + size, size);
+                squares[0] = new Square(x * size, y * size, size);
+                squares[1] = new Square((x + 1) * size, y * size, size);
+                squares[2] = new Square((x + 2) * size, y * size, size);
+                squares[3] = new Square((x + 1) * size, (y + 1) * size, size);
                 break;
             }
             default: {
