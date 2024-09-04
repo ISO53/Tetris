@@ -44,7 +44,7 @@ public class Piece {
                 squares[0] = new Square((x + 1) * size, y * size, size);
                 squares[1] = new Square((x + 2) * size, y * size, size);
                 squares[2] = new Square(x * size, (y + 1) * size, size);
-                squares[3] = new Square(x * size, (y + 2) * size, size);
+                squares[3] = new Square((x + 1) * size, (y + 1) * size, size);
                 break;
             }
             case Z: {
@@ -60,7 +60,7 @@ public class Piece {
                 squares[0] = new Square(x * size, y * size, size);
                 squares[1] = new Square(x * size, (y + 1) * size, size);
                 squares[2] = new Square(x * size, (y + 2) * size, size);
-                squares[3] = new Square(x + size, (y + 3) * size, size);
+                squares[3] = new Square((x + 1) * size, (y + 2) * size, size);
                 break;
             }
             case J: {
@@ -68,7 +68,7 @@ public class Piece {
                 squares[0] = new Square((x + 1) * size, y * size, size);
                 squares[1] = new Square((x + 1) * size, (y + 1) * size, size);
                 squares[2] = new Square((x + 1) * size, (y + 2) * size, size);
-                squares[3] = new Square(x * size, (y + 3) * size, size);
+                squares[3] = new Square(x * size, (y + 2) * size, size);
                 break;
             }
             case T: {
