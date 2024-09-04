@@ -86,7 +86,9 @@ public class Piece {
         }
     }
 
-    public static Piece random(int size) {
-        return new Piece(0, 0, size, PieceType.values()[new Random().nextInt(PieceType.values().length)]);
+    public static Piece random(int x, int y, int size) {
+        return new Piece(x, y, size, PieceType.values()[new Random().nextInt(PieceType.values().length)]);
+    }
+
     }
 }
