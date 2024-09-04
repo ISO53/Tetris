@@ -20,7 +20,7 @@ public class GamePanel extends JPanel {
         this.timer = new Timer();
         this.random = new Random();
         this.column = 10;
-        this.row = 30;
+        this.row = 20;
         this.area = new Square[column][row];
     }
 
