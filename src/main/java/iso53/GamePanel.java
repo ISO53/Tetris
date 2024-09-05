@@ -87,4 +87,30 @@ public class GamePanel extends JPanel {
             square.paint(g2D, current.getColor());
         }
     }
+    private void movePiece(Direction direction) {
+        switch (direction) {
+            case DOWN: {
+                // Check if there is any intersection when we move the current piece down one square.
+                for (Square pieceSquare : current.getSquares()) {
+
+                    // Out of bounds check
+                    if (area.length <= (pieceSquare.x / squareSize) || area[0].length <= pieceSquare.y / squareSize) {
+                        return;
+                    }
+
+                    // Check if below is empty
+                    if (area[pieceSquare.x / squareSize][pieceSquare.y / squareSize] != null) {
+                        // TODO piece stopped
+                        return;
+                    }
+                }
+
+                // If not, move the piece
+                for (Square square : current.getSquares()) {
+                    square.y += squareSize;
+                }
+                break;
+            }
+        }
+    }
 }
