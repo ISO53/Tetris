@@ -7,7 +7,6 @@ public class Piece {
 
     private final Square[] squares;
     private final PieceType type;
-    private final Color color;
     private final int size; // Size of the square, not the whole piece
 
     // Location of the piece (top left)
@@ -24,7 +23,6 @@ public class Piece {
 
         switch (type) {
             case O: {
-                this.color = Color.YELLOW;
                 squares[0] = new Square(x * size, y * size, size, Color.YELLOW);
                 squares[1] = new Square((x + 1) * size, y * size, size, Color.YELLOW);
                 squares[2] = new Square(x * size, (y + 1) * size, size, Color.YELLOW);
@@ -32,7 +30,6 @@ public class Piece {
                 break;
             }
             case I: {
-                this.color = Color.BLUE;
                 squares[0] = new Square(x * size, y * size, size, Color.BLUE);
                 squares[1] = new Square(x * size, (y + 1) * size, size, Color.BLUE);
                 squares[2] = new Square(x * size, (y + 2) * size, size, Color.BLUE);
@@ -40,7 +37,6 @@ public class Piece {
                 break;
             }
             case S: {
-                this.color = Color.RED;
                 squares[0] = new Square((x + 1) * size, y * size, size, Color.RED);
                 squares[1] = new Square((x + 2) * size, y * size, size, Color.RED);
                 squares[2] = new Square(x * size, (y + 1) * size, size, Color.RED);
@@ -48,7 +44,6 @@ public class Piece {
                 break;
             }
             case Z: {
-                this.color = Color.GREEN;
                 squares[0] = new Square(x * size, y * size, size, Color.GREEN);
                 squares[1] = new Square((x + 1) * size, y * size, size, Color.GREEN);
                 squares[2] = new Square((x + 1) * size, (y + 1) * size, size, Color.GREEN);
@@ -56,7 +51,6 @@ public class Piece {
                 break;
             }
             case L: {
-                this.color = Color.ORANGE;
                 squares[0] = new Square(x * size, y * size, size, Color.ORANGE);
                 squares[1] = new Square(x * size, (y + 1) * size, size, Color.ORANGE);
                 squares[2] = new Square(x * size, (y + 2) * size, size, Color.ORANGE);
@@ -64,7 +58,6 @@ public class Piece {
                 break;
             }
             case J: {
-                this.color = Color.PINK;
                 squares[0] = new Square((x + 1) * size, y * size, size, Color.PINK);
                 squares[1] = new Square((x + 1) * size, (y + 1) * size, size, Color.PINK);
                 squares[2] = new Square((x + 1) * size, (y + 2) * size, size, Color.PINK);
@@ -72,16 +65,11 @@ public class Piece {
                 break;
             }
             case T: {
-                this.color = Color.MAGENTA;
                 squares[0] = new Square(x * size, y * size, size, Color.MAGENTA);
                 squares[1] = new Square((x + 1) * size, y * size, size, Color.MAGENTA);
                 squares[2] = new Square((x + 2) * size, y * size, size, Color.MAGENTA);
                 squares[3] = new Square((x + 1) * size, (y + 1) * size, size, Color.MAGENTA);
                 break;
-            }
-            default: {
-                this.color = Color.BLACK;
-                // This is impossible but if I don't add this compiler gets angry (color variable is final)
             }
         }
     }
@@ -92,9 +80,5 @@ public class Piece {
 
     public Square[] getSquares() {
         return squares;
-    }
-
-    public Color getColor() {
-        return color;
     }
 }
