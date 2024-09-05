@@ -132,8 +132,8 @@ public class GamePanel extends JPanel {
                         }
 
                         // Start sending the other piece
-                        current = next;
-                        next = Piece.random(area.length / 2, 1, squareSize);
+                        current = new Piece(column / 2, 1, squareSize, next.getType());
+                        next = Piece.random(column + infoAreaColumn / 2 + 1, 2, squareSize);
                         return;
                     }
                 }
