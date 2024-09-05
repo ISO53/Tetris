@@ -56,6 +56,9 @@ public class GamePanel extends JPanel {
 
         // Current piece that's falling down
         paintCurrentPiece(g2D);
+
+        // Paint the remaining squares
+        paintSquares(g2D);
     }
 
     public void start() {
@@ -92,6 +95,18 @@ public class GamePanel extends JPanel {
             square.paint(g2D);
         }
     }
+
+    private void paintSquares(Graphics2D g2D) {
+        for (int col = 0; col < area.length; col++) {
+            for (int row = 0; row < area[col].length; row++) {
+                if (area[col][row] != null) {
+                    // There is a square at this location, render it
+                    area[col][row].paint(g2D);
+                }
+            }
+        }
+    }
+
     private void movePiece(Direction direction) {
         switch (direction) {
             case DOWN: {
