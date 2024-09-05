@@ -75,4 +75,27 @@ public class Piece {
     public Square[] getSquares() {
         return squares;
     }
+
+    public void move(Direction direction, int size) {
+        switch (direction) {
+            case DOWN: {
+                for (Square square : getSquares()) {
+                    square.y += size;
+                }
+                break;
+            }
+            case LEFT: {
+                for (Square square : getSquares()) {
+                    square.x -= size;
+                }
+                break;
+            }
+            case RIGHT: {
+                for (Square square : getSquares()) {
+                    square.x += size;
+                }
+                break;
+            }
+        }
+    }
 }
