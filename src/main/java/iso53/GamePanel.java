@@ -8,6 +8,10 @@ import java.util.TimerTask;
 
 public class GamePanel extends JPanel {
 
+    private enum Direction {
+        DOWN, LEFT, RIGHT
+    }
+
     private final Timer timer;
     private final Random random;
     private final int column;
