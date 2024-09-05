@@ -58,6 +58,8 @@ public class GamePanel extends JPanel {
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
+                movePiece(Direction.DOWN);
+                SwingUtilities.invokeLater(() -> repaint());
             }
         }, 0, 500);
     }
