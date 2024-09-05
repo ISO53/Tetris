@@ -140,9 +140,8 @@ public class GamePanel extends JPanel {
                 }
 
                 // If not, move the piece
-                for (Square square : current.getSquares()) {
-                    square.y += squareSize;
-                }
+                current.move(Direction.DOWN, squareSize);
+
                 break;
             }
         }
