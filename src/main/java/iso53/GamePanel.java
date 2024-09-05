@@ -74,22 +74,22 @@ public class GamePanel extends JPanel {
 
         // Draw top and bottom frame
         for (int i = 0; i < widthCol; i++) {
-            new Square(i * squareSize, 0, squareSize).paint(g2D, Color.GRAY);
-            new Square(i * squareSize, (row + 1) * squareSize, squareSize).paint(g2D, Color.GRAY);
+            new Square(i * squareSize, 0, squareSize, Color.GRAY).paint(g2D);
+            new Square(i * squareSize, (row + 1) * squareSize, squareSize, Color.GRAY).paint(g2D);
         }
 
         // Draw left, middle and right frame
         for (int i = 0; i < heightCol; i++) {
-            new Square(0, i * squareSize, squareSize).paint(g2D, Color.GRAY);
-            new Square((this.column + 1) * squareSize, i * squareSize, squareSize).paint(g2D, Color.GRAY);
-            new Square((this.column + this.infoAreaColumn + 2) * squareSize, i * squareSize, squareSize)
-                    .paint(g2D, Color.GRAY);
+            new Square(0, i * squareSize, squareSize, Color.GRAY).paint(g2D);
+            new Square((this.column + 1) * squareSize, i * squareSize, squareSize, Color.GRAY).paint(g2D);
+            new Square((this.column + this.infoAreaColumn + 2) * squareSize, i * squareSize, squareSize, Color.GRAY)
+                    .paint(g2D);
         }
     }
 
     private void paintCurrentPiece(Graphics2D g2D) {
         for (Square square : current.getSquares()) {
-            square.paint(g2D, current.getColor());
+            square.paint(g2D);
         }
     }
     private void movePiece(Direction direction) {
