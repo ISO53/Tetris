@@ -31,7 +31,8 @@ public class GamePanel extends JPanel {
         this.area = new Square[column][row];
 
         this.squareSize = 25;
-        this.current = Piece.random(5, 0, squareSize);
+        this.current = Piece.random(column / 2, 1, squareSize);
+        this.next = Piece.random(column + infoAreaColumn / 2 + 1, 1, squareSize);
 
         addKeyListeners();
     }
