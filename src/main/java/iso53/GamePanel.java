@@ -77,7 +77,8 @@ public class GamePanel extends JPanel {
         for (int i = 0; i < heightCol; i++) {
             new Square(0, i * squareSize, squareSize).paint(g2D, Color.GRAY);
             new Square((this.column + 1) * squareSize, i * squareSize, squareSize).paint(g2D, Color.GRAY);
-            new Square((this.column + this.infoAreaColumn + 2) * squareSize, i * squareSize, squareSize).paint(g2D, Color.GRAY);
+            new Square((this.column + this.infoAreaColumn + 2) * squareSize, i * squareSize, squareSize)
+                    .paint(g2D, Color.GRAY);
         }
     }
 
