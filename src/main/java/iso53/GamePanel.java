@@ -63,6 +63,7 @@ public class GamePanel extends JPanel {
             }
         }, 0, 500);
     }
+
     private void paintGameFrame(Graphics2D g2D) {
         int widthCol = this.column + this.infoAreaColumn + 3; // plus 3 for frame
         int heightCol = this.row + 2; // plus 2 for frame
