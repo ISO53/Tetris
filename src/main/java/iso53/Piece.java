@@ -7,15 +7,9 @@ public class Piece {
 
     private final Square[] squares;
     private final PieceType type;
-    private final int size; // Size of the square, not the whole piece
-
-    // Location of the piece (top left)
-    private int x, y;
 
     public Piece(int x, int y, int size, PieceType type) {
-        this.x = x;
-        this.y = y;
-        this.size = size;
+        // Size of the square, not the whole piece
         this.type = type;
 
         // Each piece consists 4 squares, the locations of these squares varies based on type
