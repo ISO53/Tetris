@@ -2,6 +2,8 @@ package iso53;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -34,6 +36,8 @@ public class GamePanel extends JPanel {
 
         this.squareSize = 25;
         this.current = Piece.random(5, 0, squareSize);
+
+        addKeyListeners();
     }
 
     @Override
@@ -113,5 +117,25 @@ public class GamePanel extends JPanel {
                 break;
             }
         }
+    }
+
+    private void addKeyListeners() {
+        this.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                switch (e.getKeyCode()) {
+                    case KeyEvent.VK_S:
+                        movePiece(Direction.DOWN);
+                        break;
+                    case KeyEvent.VK_A:
+                        movePiece(Direction.LEFT);
+                        break;
+                    case KeyEvent.VK_D:
+                        movePiece(Direction.RIGHT);
+                        break;
+                }
+                SwingUtilities.invokeLater(() -> repaint());
+            }
+        });
     }
 }

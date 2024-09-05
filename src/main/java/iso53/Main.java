@@ -5,6 +5,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 import java.util.Objects;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Main {
     private JPanel jPanelBackPanel;
@@ -30,7 +32,13 @@ public class Main {
 
         frame.pack();
         frame.setVisible(true);
+        gamePanel.requestFocusInWindow();
 
-        gamePanel.start();
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                gamePanel.start();
+            }
+        }, 1000);
     }
 }
