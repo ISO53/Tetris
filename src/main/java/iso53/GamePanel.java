@@ -98,14 +98,22 @@ public class GamePanel extends JPanel {
                 // Check if there is any intersection when we move the current piece down one square.
                 for (Square pieceSquare : current.getSquares()) {
 
-                    // Out of bounds check
-                    if (area.length <= (pieceSquare.x / squareSize) || area[0].length <= pieceSquare.y / squareSize) {
-                        return;
-                    }
+                    // flag for if the piece is at the bottom
+                    boolean isAtBottom = area[0].length == pieceSquare.y / squareSize;
 
                     // Check if below is empty
-                    if (area[pieceSquare.x / squareSize][pieceSquare.y / squareSize] != null) {
-                        // TODO piece stopped
+                    if (isAtBottom || area[pieceSquare.x / squareSize][pieceSquare.y / squareSize] != null) {
+                        // Below is not empty, the piece is stopped
+                        System.out.println("piece is stopped");
+
+                        // Save the piece's squares to the area to be rendered
+                        for (Square square : current.getSquares()) {
+                            area[square.x / squareSize][square.y / squareSize - 1] = square;
+                        }
+
+                        // Start sending the other piece
+                        current = next;
+                        next = Piece.random(area.length / 2, 1, squareSize);
                         return;
                     }
                 }
