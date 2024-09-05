@@ -98,4 +98,8 @@ public class Piece {
             }
         }
     }
+
+    public PieceType getType() {
+        return type;
+    }
 }
