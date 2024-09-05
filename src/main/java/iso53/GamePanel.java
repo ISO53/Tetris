@@ -88,6 +88,11 @@ public class GamePanel extends JPanel {
             new Square((this.column + this.infoAreaColumn + 2) * squareSize, i * squareSize, squareSize, Color.GRAY)
                     .paint(g2D);
         }
+
+        // Draw a frame after 'next piece'
+        for (int i = column; i < column + infoAreaColumn; i++) {
+            new Square((i + 2) * squareSize, 9 * squareSize, squareSize, Color.GRAY).paint(g2D);
+        }
     }
 
     private void paintCurrentPiece(Graphics2D g2D) {
