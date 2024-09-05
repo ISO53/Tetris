@@ -53,6 +53,9 @@ public class GamePanel extends JPanel {
         // Current piece that's falling down
         paintCurrentPiece(g2D);
 
+        // Next piece
+        paintNextPiece(g2D);
+
         // Paint the remaining squares
         paintSquares(g2D);
     }
@@ -88,6 +91,12 @@ public class GamePanel extends JPanel {
 
     private void paintCurrentPiece(Graphics2D g2D) {
         for (Square square : current.getSquares()) {
+            square.paint(g2D);
+        }
+    }
+
+    private void paintNextPiece(Graphics2D g2D) {
+        for (Square square : next.getSquares()) {
             square.paint(g2D);
         }
     }
