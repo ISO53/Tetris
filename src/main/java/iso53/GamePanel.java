@@ -246,15 +246,18 @@ public class GamePanel extends JPanel {
             @Override
             public void keyPressed(KeyEvent e) {
                 switch (e.getKeyCode()) {
-                    case KeyEvent.VK_S:
+                    case KeyEvent.VK_S: {
                         movePiece(Direction.DOWN);
                         break;
-                    case KeyEvent.VK_A:
+                    }
+                    case KeyEvent.VK_A: {
                         movePiece(Direction.LEFT);
                         break;
-                    case KeyEvent.VK_D:
+                    }
+                    case KeyEvent.VK_D: {
                         movePiece(Direction.RIGHT);
                         break;
+                    }
                 }
                 SwingUtilities.invokeLater(() -> repaint());
             }
