@@ -19,7 +19,6 @@ public class GamePanel extends JPanel {
     private final Square[][] area;
     private final Instant startTime;
 
-    private double speed;
     private Piece current;
     private Piece next;
     private int score;
