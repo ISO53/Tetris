@@ -11,7 +11,6 @@ import java.util.TimerTask;
 public class GamePanel extends JPanel {
 
     private final Timer timer;
-    private final Random random;
     private final int column;
     private final int row;
     private final int infoAreaColumn;
@@ -24,7 +23,6 @@ public class GamePanel extends JPanel {
 
     public GamePanel() {
         this.timer = new Timer();
-        this.random = new Random();
         this.column = 10;
         this.row = 20;
         this.infoAreaColumn = 8;
