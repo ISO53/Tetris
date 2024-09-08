@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Timer;
@@ -22,6 +23,7 @@ public class GamePanel extends JPanel {
     private Piece current;
     private Piece next;
     private int score;
+    private KeyListener keyListener;
 
     public GamePanel() {
         this.timer = new Timer();
@@ -35,8 +37,27 @@ public class GamePanel extends JPanel {
         this.current = Piece.random(column / 2, 1, squareSize);
         this.next = Piece.random(column + infoAreaColumn / 2 + 1, 4, squareSize);
         this.score = 0;
-
-        addKeyListeners();
+        this.keyListener = new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                switch (e.getKeyCode()) {
+                    case KeyEvent.VK_S: {
+                        movePiece(Direction.DOWN);
+                        break;
+                    }
+                    case KeyEvent.VK_A: {
+                        movePiece(Direction.LEFT);
+                        break;
+                    }
+                    case KeyEvent.VK_D: {
+                        movePiece(Direction.RIGHT);
+                        break;
+                    }
+                }
+                SwingUtilities.invokeLater(() -> repaint());
+            }
+        };
+        addKeyListener(keyListener);
     }
 
     @Override
@@ -273,27 +294,12 @@ public class GamePanel extends JPanel {
         }
     }
 
-    private void addKeyListeners() {
-        this.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-                switch (e.getKeyCode()) {
-                    case KeyEvent.VK_S: {
-                        movePiece(Direction.DOWN);
-                        break;
-                    }
-                    case KeyEvent.VK_A: {
-                        movePiece(Direction.LEFT);
-                        break;
-                    }
-                    case KeyEvent.VK_D: {
-                        movePiece(Direction.RIGHT);
-                        break;
-                    }
                 }
                 SwingUtilities.invokeLater(() -> repaint());
             }
         });
+    private void removeKeyListeners() {
+        this.removeKeyListener(keyListener);
     }
 
     private String getElapsedTime() {
