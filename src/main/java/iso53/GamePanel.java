@@ -59,6 +59,9 @@ public class GamePanel extends JPanel {
 
         // Paint the remaining squares
         paintSquares(g2D);
+
+        // Paint the labels like 'NEXT PIECE' etc.
+        paintLabels(g2D);
     }
 
     public void start() {
@@ -115,6 +118,20 @@ public class GamePanel extends JPanel {
                 }
             }
         }
+    }
+
+    private void paintLabels(Graphics2D g2D) {
+        // Set custom font
+        Font gameFont = new Font("Monospaced", Font.BOLD, 24);
+        g2D.setFont(gameFont);
+        g2D.setColor(Color.WHITE);
+
+        // Draw the label
+        String label = "NEXT PIECE";
+        FontMetrics metrics = g2D.getFontMetrics(gameFont);
+        int x = (column + infoAreaColumn / 2 + 2) * squareSize - metrics.stringWidth(label) / 2;
+        int y = squareSize * 3; // Position above the next piece
+        g2D.drawString(label, x, y);
     }
 
     private void movePiece(Direction direction) {
