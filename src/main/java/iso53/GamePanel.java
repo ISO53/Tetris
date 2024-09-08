@@ -125,10 +125,10 @@ public class GamePanel extends JPanel {
         Font gameFont = new Font("Monospaced", Font.BOLD, 24);
         g2D.setFont(gameFont);
         g2D.setColor(Color.WHITE);
-
-        // Draw the label
-        String label = "NEXT PIECE";
         FontMetrics metrics = g2D.getFontMetrics(gameFont);
+
+        // Draw the 'NEXT PIECE' label
+        String label = "NEXT PIECE";
         int x = (column + infoAreaColumn / 2 + 2) * squareSize - metrics.stringWidth(label) / 2;
         int y = squareSize * 3; // Position above the next piece
         g2D.drawString(label, x, y);
