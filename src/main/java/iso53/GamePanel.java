@@ -5,6 +5,8 @@ import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.Random;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -16,6 +18,7 @@ public class GamePanel extends JPanel {
     private final int squareSize; // px
     private final int infoAreaColumn;
     private final Square[][] area;
+    private final Instant startTime;
 
     private double speed;
     private Piece current;
@@ -29,6 +32,7 @@ public class GamePanel extends JPanel {
         this.squareSize = 25;
         this.infoAreaColumn = 8;
         this.area = new Square[column][row];
+        this.startTime = Instant.now();
 
         this.current = Piece.random(column / 2, 1, squareSize);
         this.next = Piece.random(column + infoAreaColumn / 2 + 1, 4, squareSize);
@@ -143,6 +147,20 @@ public class GamePanel extends JPanel {
         label = String.valueOf(score);
         x = (column + 3) * squareSize;
         y = squareSize * 13;
+        g2D.setColor(Color.CYAN);
+        g2D.drawString(label, x, y);
+
+        // Draw the 'TIME' label
+        label = "TIME";
+        x = (column + 3) * squareSize;
+        y = squareSize * 15;
+        g2D.setColor(Color.WHITE);
+        g2D.drawString(label, x, y);
+
+        // Draw the actual time
+        label = getElapsedTime();
+        x = (column + 3) * squareSize;
+        y = squareSize * 16;
         g2D.setColor(Color.CYAN);
         g2D.drawString(label, x, y);
     }
@@ -278,5 +296,14 @@ public class GamePanel extends JPanel {
                 SwingUtilities.invokeLater(() -> repaint());
             }
         });
+    }
+
+    private String getElapsedTime() {
+        Duration elapsed = Duration.between(startTime, Instant.now());
+        long seconds = elapsed.getSeconds();
+        long hours = seconds / 3600;
+        long minutes = (seconds % 3600) / 60;
+        long secs = seconds % 60;
+        return String.format("%02d:%02d:%02d", hours, minutes, secs);
     }
 }
