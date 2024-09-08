@@ -121,31 +121,73 @@ public class GamePanel extends JPanel {
         switch (direction) {
             case DOWN: {
                 // Check if there is any intersection when we move the current piece down one square.
+                boolean pieceBelow = false;
                 for (Square pieceSquare : current.getSquares()) {
 
-                    // flag for if the piece is at the bottom
-                    boolean isAtBottom = area[0].length == pieceSquare.y / squareSize;
+                    // If the below square is the game frame the piece is at the bottom
+                    pieceBelow = area[0].length == pieceSquare.y / squareSize;
 
-                    // Check if below is empty
-                    if (isAtBottom || area[pieceSquare.x / squareSize][pieceSquare.y / squareSize] != null) {
-                        // Below is not empty, the piece is stopped
-                        System.out.println("piece is stopped");
-
-                        // Save the piece's squares to the area to be rendered
-                        for (Square square : current.getSquares()) {
-                            area[square.x / squareSize][square.y / squareSize - 1] = square;
-                        }
-
-                        // Start sending the other piece
-                        current = new Piece(column / 2, 1, squareSize, next.getType());
-                        next = Piece.random(column + infoAreaColumn / 2 + 1, 2, squareSize);
-                        return;
+                    if (pieceBelow) {
+                        break;
                     }
+
+                    // Check if below is empty or not
+                    if (area[pieceSquare.x / squareSize - 1][pieceSquare.y / squareSize] != null) {
+                        pieceBelow = true;
+                        break;
+                    }
+                }
+
+                // If the piece is at the bottom render it to the 'area' and send the next piece
+                if (pieceBelow) {
+                    // Save the piece's squares to the area to be rendered
+                    for (Square square : current.getSquares()) {
+                        area[square.x / squareSize - 1][square.y / squareSize - 1] = square;
+                    }
+
+                    // Start sending the other piece
+                    current = new Piece(column / 2, 1, squareSize, next.getType());
+                    next = Piece.random(column + infoAreaColumn / 2 + 1, 4, squareSize);
+                    return;
                 }
 
                 // If not, move the piece
                 current.move(Direction.DOWN, squareSize);
 
+                break;
+            }
+            case LEFT: {
+                // Check if there is any intersection when we move the current piece left one square.
+                for (Square pieceSquare : current.getSquares()) {
+
+                    // Flag for if the piece is at the far left
+                    boolean isAtFarLeft = pieceSquare.x / squareSize <= 1;
+
+                    // Check if there is a piece on the left side
+                    if (isAtFarLeft || area[pieceSquare.x / squareSize - 2][pieceSquare.y / squareSize - 1] != null) {
+                        return;
+                    }
+                }
+
+                // If not, move the piece
+                current.move(Direction.LEFT, squareSize);
+                break;
+            }
+            case RIGHT: {
+                // Check if there is any intersection when we move the current piece right one square.
+                for (Square pieceSquare : current.getSquares()) {
+
+                    // Flag for if the piece is at the far right
+                    boolean isAtFarRight = pieceSquare.x / squareSize >= column;
+
+                    // Check if there is a piece on the right side
+                    if (isAtFarRight || area[pieceSquare.x / squareSize][pieceSquare.y / squareSize - 1] != null) {
+                        return;
+                    }
+                }
+
+                // If not, move the piece
+                current.move(Direction.RIGHT, squareSize);
                 break;
             }
         }
