@@ -91,6 +91,7 @@ public class GamePanel extends JPanel {
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
+//                printArea();
                 if (isGameOver()) {
                     timer.cancel();
                     removeKeyListeners();
@@ -300,15 +301,28 @@ public class GamePanel extends JPanel {
     }
 
     private boolean isGameOver() {
-        for (int i = 0; i < area[0].length; i++) {
-            if (area[0][i] != null) {
+        for (int i = 0; i < area.length; i++) {
+            if (area[i][0] != null) {
                 return true;
             }
         }
         return false;
     }
+
+    private void printArea() {
+        for (int x = 0; x < area.length; x++) {
+            for (int y = 0; y < area[x].length; y++) {
+                if (area[x][y] == null) {
+                    System.out.print("□ ");
+                } else {
+                    System.out.print("■ ");
                 }
             }
+            System.out.println();
+        }
+        System.out.println();
+    }
+
     private void removeKeyListeners() {
         this.removeKeyListener(keyListener);
     }
