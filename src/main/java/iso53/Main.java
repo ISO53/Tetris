@@ -41,4 +41,8 @@ public class Main {
             }
         }, 1000);
     }
+
+    private void createUIComponents() {
+        gamePanel = new GamePanel();
+    }
 }
