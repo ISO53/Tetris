@@ -295,9 +295,7 @@ public class GamePanel extends JPanel {
     }
 
                 }
-                SwingUtilities.invokeLater(() -> repaint());
             }
-        });
     private void removeKeyListeners() {
         this.removeKeyListener(keyListener);
     }
