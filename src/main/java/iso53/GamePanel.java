@@ -132,6 +132,19 @@ public class GamePanel extends JPanel {
         int x = (column + infoAreaColumn / 2 + 2) * squareSize - metrics.stringWidth(label) / 2;
         int y = squareSize * 3; // Position above the next piece
         g2D.drawString(label, x, y);
+
+        // Draw the 'SCORE' label
+        label = "SCORE";
+        x = (column + 3) * squareSize;
+        y = squareSize * 12;
+        g2D.drawString(label, x, y);
+
+        // Draw the actual score
+        label = String.valueOf(score);
+        x = (column + 3) * squareSize;
+        y = squareSize * 13;
+        g2D.setColor(Color.CYAN);
+        g2D.drawString(label, x, y);
     }
 
     private void movePiece(Direction direction) {
