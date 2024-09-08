@@ -52,3 +52,6 @@ This project is licensed under the [GNU General Public License v3.0](LICENSE). F
 
 ## Acknowledgments
 Inspired by the classic Tetris game.
+
+> [!CAUTION]
+> Don't look at [this](https://github.com/ISO53/Tetris/commit/37c8e264713c1a916ae313336beadf3d35a0d3b5) commit.
