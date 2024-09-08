@@ -43,22 +43,4 @@ public class Main {
             }
         }, 1000);
     }
-
-    private void addKeyListeners() {
-        jPanelBackPanel.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-                switch (e.getKeyCode()) {
-                    case KeyEvent.VK_N: { // New Game
-                        gamePanel = new GamePanel();
-                        break;
-                    }
-                    case KeyEvent.VK_P: { // Pause
-                        break;
-                    }
-                }
-            }
-        });
-    }
-
 }
