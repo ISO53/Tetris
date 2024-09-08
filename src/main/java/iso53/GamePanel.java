@@ -20,6 +20,7 @@ public class GamePanel extends JPanel {
     private double speed;
     private Piece current;
     private Piece next;
+    private int score;
 
     public GamePanel() {
         this.timer = new Timer();
@@ -31,6 +32,7 @@ public class GamePanel extends JPanel {
 
         this.current = Piece.random(column / 2, 1, squareSize);
         this.next = Piece.random(column + infoAreaColumn / 2 + 1, 4, squareSize);
+        this.score = 0;
 
         addKeyListeners();
     }
@@ -222,6 +224,7 @@ public class GamePanel extends JPanel {
             }
             if (isFull) {
                 clearRow(y);
+                score += 100;
             }
         }
     }
