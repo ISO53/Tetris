@@ -206,6 +206,39 @@ public class GamePanel extends JPanel {
                 break;
             }
         }
+
+        // After moving the piece check if there are full rows
+        checkAndClearFullRows();
+    }
+
+    private void checkAndClearFullRows() {
+        for (int y = 0; y < row; y++) {
+            boolean isFull = true;
+            for (int x = 0; x < column; x++) {
+                if (area[x][y] == null) {
+                    isFull = false;
+                    break;
+                }
+            }
+            if (isFull) {
+                clearRow(y);
+            }
+        }
+    }
+
+    private void clearRow(int rowIndex) {
+        // Move all rows above the cleared row one cell down
+        for (int y = rowIndex; y > 0; y--) {
+            for (int x = 0; x < column; x++) {
+                area[x][y] = area[x][y - 1];
+                if (area[x][y] != null) {
+                    area[x][y].x = (x + 1) * squareSize;
+                    area[x][y].y = (y + 1) * squareSize;
+                    // this is stupid, the squares should be stored in a different data structure
+                }
+                area[x][y - 1] = null;
+            }
+        }
     }
 
     private void addKeyListeners() {
