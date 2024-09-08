@@ -91,6 +91,11 @@ public class GamePanel extends JPanel {
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
+                if (isGameOver()) {
+                    timer.cancel();
+                    removeKeyListeners();
+                    if (score < 500) System.out.println("fucking noob");
+                }
                 movePiece(Direction.DOWN);
                 SwingUtilities.invokeLater(() -> repaint());
             }
@@ -294,6 +299,14 @@ public class GamePanel extends JPanel {
         }
     }
 
+    private boolean isGameOver() {
+        for (int i = 0; i < area[0].length; i++) {
+            if (area[0][i] != null) {
+                return true;
+            }
+        }
+        return false;
+    }
                 }
             }
     private void removeKeyListeners() {
