@@ -3,6 +3,8 @@ package iso53;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.Objects;
 import java.util.Timer;
@@ -41,4 +43,22 @@ public class Main {
             }
         }, 1000);
     }
+
+    private void addKeyListeners() {
+        jPanelBackPanel.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                switch (e.getKeyCode()) {
+                    case KeyEvent.VK_N: { // New Game
+                        gamePanel = new GamePanel();
+                        break;
+                    }
+                    case KeyEvent.VK_P: { // Pause
+                        break;
+                    }
+                }
+            }
+        });
+    }
+
 }

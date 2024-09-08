@@ -13,11 +13,11 @@ public class GamePanel extends JPanel {
     private final Timer timer;
     private final int column;
     private final int row;
+    private final int squareSize; // px
     private final int infoAreaColumn;
     private final Square[][] area;
 
     private double speed;
-    private int squareSize; // px
     private Piece current;
     private Piece next;
 
@@ -25,10 +25,10 @@ public class GamePanel extends JPanel {
         this.timer = new Timer();
         this.column = 10;
         this.row = 20;
+        this.squareSize = 25;
         this.infoAreaColumn = 8;
         this.area = new Square[column][row];
 
-        this.squareSize = 25;
         this.current = Piece.random(column / 2, 1, squareSize);
         this.next = Piece.random(column + infoAreaColumn / 2 + 1, 4, squareSize);
 
